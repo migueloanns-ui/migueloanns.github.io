@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Peças 3D</title>
+<style>
+:root{--bg:#f4f5f9;--card:#fff;--tx:#1b1e2b;--mu:#6b7085;--ac:#5b5bf0;--ac2:#fff;--bd:#e3e5ee;--ok:#1a9d5c;--wa:#d98a00;--er:#d6334a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#12141c;--card:#1c1f2b;--tx:#eceef6;--mu:#9a9fb5;--bd:#2c3040;--ac:#7c7cff}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#12141c;--card:#1c1f2b;--tx:#eceef6;--mu:#9a9fb5;--bd:#2c3040;--ac:#7c7cff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+.w{max-width:820px;margin:0 auto;padding:16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+h1{font-size:1.35rem;margin:0}h2{font-size:1.15rem;margin:0 0 10px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin-bottom:12px;max-width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:46px;padding:10px 18px;border:0;border-radius:12px;background:var(--ac);color:var(--ac2);font:600 1rem inherit;font-family:inherit;cursor:pointer;max-width:100%}
+.btn.s{background:transparent;color:var(--tx);border:1px solid var(--bd)}.btn.ok{background:var(--ok)}.btn.er{background:var(--er)}.btn.sm{min-height:38px;padding:6px 12px;font-size:.9rem}
+.btn:disabled{opacity:.5}
+.home{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.big{min-height:150px;flex-direction:column;font-size:1.15rem;border-radius:18px}.big span{font-size:2.2rem}
+@media(max-width:480px){.home{grid-template-columns:1fr}.big{min-height:110px}}
+label{display:block;font-weight:600;margin:12px 0 4px;font-size:.92rem}
+input,select,textarea{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font:inherit}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sw{display:flex;flex-wrap:wrap;gap:10px}
+.sw button{width:44px;height:44px;border-radius:50%;border:3px solid var(--bd);cursor:pointer;padding:0}
+.sw button.on{border-color:var(--ac);box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.grid img,.ph{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;background:var(--bd);display:block}
+.ph{display:grid;place-items:center;font-size:2rem}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:.8rem;font-weight:700;background:var(--bd)}
+.tag.a{background:#fff2d6;color:#8a5a00}.tag.p{background:#e0e4ff;color:#3a3ad0}.tag.g{background:#d9f4e5;color:#0f7a45}.tag.r{background:#fde0e4;color:#b0233a}
+.mu{color:var(--mu);font-size:.9rem}.dot{width:14px;height:14px;border-radius:50%;display:inline-block;vertical-align:middle;border:1px solid var(--bd)}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px}.tabs .btn{flex:none}
+.qr{display:grid;place-items:center;padding:12px;background:#fff;border-radius:12px;width:max-content;max-width:100%;margin:10px auto}
+.code{word-break:break-all;font:.8rem monospace;background:var(--bg);padding:10px;border-radius:10px;border:1px solid var(--bd)}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:12px 18px;border-radius:12px;max-width:90vw;z-index:9;display:none;text-align:center}
+.i{width:34px;height:34px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--mu);font-weight:700;cursor:pointer}
+img.ref{max-width:100%;max-height:160px;border-radius:10px;margin-top:8px}
+:root{--g:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#c026d3);--sh:0 8px 28px rgba(60,50,140,.12);--gold:#e8b44c}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--sh:0 8px 28px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--sh:0 8px 28px rgba(0,0,0,.45)}
+body{background:radial-gradient(900px 420px at 85% -80px,rgba(124,58,237,.14),transparent 70%),radial-gradient(700px 380px at -10% 10%,rgba(79,70,229,.12),transparent 70%),var(--bg);min-height:100vh}
+.w{max-width:1000px;padding:20px 18px 8px}
+header{padding:10px 14px;background:var(--card);border:1px solid var(--bd);border-radius:18px;box-shadow:var(--sh);margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:12px;background:var(--g);display:grid;place-items:center;font-size:1.3rem;box-shadow:0 6px 16px rgba(124,58,237,.35)}
+.brand b{display:block;font-size:1.1rem;letter-spacing:.2px;line-height:1.1}.brand small{color:var(--mu);font-size:.72rem;letter-spacing:1.2px;text-transform:uppercase}
+.card{border-radius:20px;box-shadow:var(--sh)}
+.btn{background:var(--g);box-shadow:0 6px 16px rgba(124,58,237,.28);transition:transform .15s,box-shadow .15s}.btn:hover{transform:translateY(-2px)}
+.btn.s{background:var(--card);box-shadow:none}.btn.ok{background:linear-gradient(135deg,#16a34a,#0f8a5f)}.btn.er{background:linear-gradient(135deg,#e11d48,#be123c)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ac);border-color:transparent}
+.hero{background:var(--g);color:#fff;border-radius:26px;padding:40px 28px;position:relative;overflow:hidden;box-shadow:0 18px 44px rgba(91,70,230,.35)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.1)}.hero:before{width:260px;height:260px;right:-70px;top:-90px}.hero:after{width:170px;height:170px;right:70px;bottom:-90px}
+.hero>*{position:relative}.hero .eb{display:inline-block;font-size:.75rem;letter-spacing:1.6px;text-transform:uppercase;background:rgba(255,255,255,.18);padding:6px 12px;border-radius:99px;margin-bottom:14px}
+.hero h2{font-size:clamp(1.7rem,5.5vw,2.6rem);line-height:1.1;margin:0 0 12px;max-width:560px}.hero p{margin:0 0 22px;max-width:520px;opacity:.92}
+.hero .row .btn{background:#fff;color:#4f46e5;box-shadow:0 8px 20px rgba(0,0,0,.2)}.hero .row .btn.s{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
+.feat .card{margin:0;display:flex;gap:12px;align-items:flex-start}.ic{flex:none;width:44px;height:44px;border-radius:13px;background:var(--g);display:grid;place-items:center;font-size:1.3rem}
+.feat b{display:block}.feat span.mu{font-size:.85rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;counter-reset:s}
+.steps div{position:relative;padding:16px 16px 16px 58px;background:var(--card);border:1px solid var(--bd);border-radius:16px}
+.steps div:before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;font-weight:700}
+.sec{font-size:1.2rem;margin:26px 0 12px}.sec small{display:block;color:var(--gold);font-size:.72rem;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:2px}
+.grid .card{transition:transform .2s}.grid .card:hover{transform:translateY(-4px)}
+footer{margin-top:30px;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mu);font-size:.85rem;border-top:1px solid var(--bd)}footer b{color:var(--tx)}
+@media(max-width:480px){.hero{padding:30px 20px}.w{padding:12px}.brand small{display:none}}
+.ic{background:none!important;width:auto;height:auto;color:var(--ac);display:block;flex:none}.ic svg{width:46px;height:46px}.btn svg{width:20px;height:20px;flex:none}
+.ord{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(79,70,229,.05)),var(--card)}
+.tile{width:64px;height:64px;border-radius:17px;background:var(--g);display:grid;place-items:center;color:#fff;box-shadow:0 8px 20px rgba(124,58,237,.35)}.tile svg{width:34px;height:34px}
+.ord .main{min-width:0}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:99px;font-weight:700;font-size:.85rem;white-space:nowrap;color:#fff}.pill svg{width:18px;height:18px}
+.pill.r{background:linear-gradient(135deg,#f0304f,#c4122f)}.pill.g{background:linear-gradient(135deg,#22c55e,#16a34a)}.pill.a{background:linear-gradient(135deg,#f59e0b,#d97706)}.pill.p{background:linear-gradient(135deg,#6366f1,#7c3aed)}
+.meta{display:flex;align-items:center;gap:8px;color:var(--mu);font-size:.85rem;margin-top:6px;word-break:break-word}.meta svg{width:18px;height:18px;color:var(--ac);flex:none}
+.chips{display:inline-flex;flex-wrap:wrap;background:rgba(124,92,255,.1);border-radius:14px;padding:6px 4px;margin-top:8px}.chip{display:flex;align-items:center;gap:8px;padding:2px 12px;font-size:.9rem}.chip+.chip{border-left:1px solid var(--bd)}.chip svg{width:26px;height:26px;color:var(--ac);flex:none}
+.det{grid-column:1/-1;border-top:1px solid var(--bd);margin-top:10px;padding-top:10px}.det p{display:flex;gap:10px;align-items:center;margin:8px 0}.det p svg{width:22px;height:22px;color:var(--ac);flex:none}.det p.bad svg{color:var(--er)}
+.act{grid-column:1/-1;text-align:right;margin-top:8px}.hh{display:flex;align-items:center;gap:10px;font-size:1.4rem}.hh svg{width:30px;height:30px;color:var(--ac)}
+@media(max-width:480px){.tile{width:46px;height:46px;border-radius:13px}.tile svg{width:26px;height:26px}.ord{gap:4px 12px}.chip{padding:2px 8px}}
+</style></head><body>
+<div class="w"><header><div class="brand"><div class="logo">🧊</div><div><b>Peças 3D</b><small>Impressão sob encomenda</small></div></div><div class="row"><button class="btn s sm" id="back" style="display:none">← Início</button><button class="btn s sm" id="mine" style="display:none">Meus pedidos</button><button class="btn sm" id="adm" style="display:none">Admin</button><button class="i" id="info" aria-label="Informações">i</button></div></header>
+<div id="app"></div></div><footer><b>Peças 3D</b> · Impressão 3D personalizada<br>Pagamento via Pix · Entrega no seu endereço</footer><div id="toast"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,onAuthStateChanged,signInAnonymously,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,doc,collection,onSnapshot,setDoc,addDoc,updateDoc,deleteDoc,query,where} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+/* ===== COLE AQUI A CONFIGURAÇÃO DO SEU FIREBASE ===== */
+const FB={apiKey:"AIzaSyA5iXYc-7KqJxaP5rsmL_DyPY22F5ANmRI",authDomain:"pecas3d.firebaseapp.com",projectId:"pecas3d",storageBucket:"pecas3d.firebasestorage.app",messagingSenderId:"982034840333",appId:"1:982034840333:web:29634e67d61fe3c7b3ce44"};
+const ADMIN_EMAIL="admin@pecas3d.com";
+const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const DEF=[{n:"Preto",h:"#222222"},{n:"Branco",h:"#f2f2f2"},{n:"Vermelho",h:"#d6334a"},{n:"Azul",h:"#2f6fed"},{n:"Verde",h:"#1a9d5c"},{n:"Amarelo",h:"#f2c200"}];
+let db,assets,uid,view="home",cfg={colors:DEF,pixKey:"",pixName:"",pixCity:"SAO PAULO"},stock=[],me=null,all=[],lock=null,isAdm=false,adminOn=false,tab="ped",pick=null,draft={},taps=0,tt,lastSt={},showPass=false;
+const ST={analise:["Em análise","a"],aguardando:["Aguardando pagamento","p"],pago_info:["Pagamento informado","p"],pago:["Pagamento confirmado","g"],producao:["Produto sendo feito","p"],pronto:["Pronto para entrega","g"],entregue:["Entregue","g"],recusado:["Recusado","r"]};
+const R=v=>"R$ "+Number(v||0).toFixed(2).replace(".",",");
+function toast(m){const t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(t._h);t._h=setTimeout(()=>t.style.display="none",4500)}
+const tlv=(i,v)=>i+String(v.length).padStart(2,"0")+v;
+function crc(s){let c=0xFFFF;for(let i=0;i<s.length;i++){c^=s.charCodeAt(i)<<8;for(let j=0;j<8;j++)c=c&0x8000?((c<<1)^0x1021)&0xFFFF:(c<<1)&0xFFFF}return c.toString(16).toUpperCase().padStart(4,"0")}
+const asc=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^A-Za-z0-9 ]/g,"").toUpperCase();
+function pixCode(v,tx){const p=tlv("00","01")+tlv("26",tlv("00","br.gov.bcb.pix")+tlv("01",cfg.pixKey))+tlv("52","0000")+tlv("53","986")+tlv("54",Number(v).toFixed(2))+tlv("58","BR")+tlv("59",asc(cfg.pixName||"LOJA").slice(0,25))+tlv("60",asc(cfg.pixCity||"SAO PAULO").slice(0,15))+tlv("62",tlv("05",asc(tx).slice(0,20)||"***"))+"6304";return p+crc(p)}
+let auth,fs,prof=null,ords=[],unsub=[];
+async function init(){
+ if(!FB.apiKey||FB.apiKey.startsWith("COLE")){$("#app").innerHTML='<div class="card">Falta colar a configuração do Firebase no arquivo index.html.</div>';return}
+ const app=initializeApp(FB);auth=getAuth(app);fs=getFirestore(app);db=true;
+ onSnapshot(doc(fs,"config","main"),s=>{if(s.exists())cfg={...cfg,...s.data()};render()});
+ onSnapshot(collection(fs,"stock"),s=>{stock=s.docs.map(d=>({id:d.id,...d.data()}));render()});
+ onAuthStateChanged(auth,u=>{unsub.forEach(f=>f());unsub=[];if(!u){signInAnonymously(auth).catch(()=>toast("Erro de conexão."));return}
+  uid=u.uid;isAdm=u.email===ADMIN_EMAIL;
+  unsub.push(onSnapshot(doc(fs,"profiles",uid),s=>{prof=s.exists()?s.data():null;build()}));
+  unsub.push(onSnapshot(query(collection(fs,"orders"),where("uid","==",uid)),s=>{ords=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>a.created-b.created);build()}));
+  if(isAdm)unsub.push(onSnapshot(collection(fs,"orders"),s=>{all=s.docs.map(d=>({id:d.id,...d.data()})).map(o=>({uid:o.uid,profile:o.profile,items:[o]}));render()}));
+  render()})}
+function build(){ords.forEach(o=>{if(lastSt[o.id]&&lastSt[o.id]!==o.status){if(o.status==="aguardando")toast("Seu pedido foi aprovado! Valor "+R(o.price)+" – pague no Pix.");else if(o.status==="pago")toast("Seu Pix foi feito com sucesso! Pagamento confirmado.");else if(o.status==="producao")toast("Seu produto está sendo feito.");else if(o.status==="pronto")toast("Seu produto está pronto para entrega!");else if(o.status==="entregue")toast("Pedido entregue!");else if(o.status==="recusado")toast("Pedido não pôde ser aceito.")}lastSt[o.id]=o.status});me=(prof||ords.length)?{profile:prof,items:ords}:null;render()}
+function startAll(){}
+function go(v){view=v;adminOn=v==="admin";render();scrollTo(0,0)}
+$("#back").onclick=()=>go("home");$("#mine").onclick=()=>go("mine");$("#adm").onclick=()=>{startAll();go("admin")};
+$("#info").onclick=()=>{clearTimeout(tt);tt=setTimeout(()=>taps=0,4000);if(++taps>=10){taps=0;showPass=true;go("login")}else toast("Peças 3D sob encomenda. Entrega local.")};
+function render(){
+ $("#adm").style.display=isAdm?"":"none";$("#mine").style.display=me&&view!=="mine"?"":"none";$("#back").style.display=view!=="home"?"":"none";
+ if(!db)return;const a=$("#app");if(view==="admin"&&!isAdm)view="home";
+ if(document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&view!=="home"&&view!=="mine")return;
+ const f={home,order,stock:vstock,mine,pay,login,admin}[view];a.innerHTML=f();bind()}
+const ICO={cart:'<circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>',box:'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.29 7 8.71 5 8.71-5"/>',shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',zap:'<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',truck:'<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>'};
+const sv=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k]}</svg>`;
+const ICO2={x:'<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>',check:'<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',eye:'<path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/>',user:'<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',file:'<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/>',pin:'<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',dollar:'<circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>',palette:'<circle cx="13.5" cy="6.5" r=".6"/><circle cx="17.5" cy="10.5" r=".6"/><circle cx="8.5" cy="7.5" r=".6"/><circle cx="6.5" cy="12.5" r=".6"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>',qr:'<rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-3"/>',wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/>'};Object.assign(ICO,ICO2);
+const SI={analise:"clock",aguardando:"dollar",pago_info:"dollar",pago:"check",producao:"wrench",pronto:"box",entregue:"check",recusado:"x"};
+const pill=o=>{const s=ST[o.status]||["",""];return `<span class="pill ${s[1]}">${sv(SI[o.status]||"clock")}${s[0]}</span>`};
+const chips=(o,pz)=>o.price?`<div class="chips"><div class="chip">${sv("dollar")}<span>Valor: <b>${R(o.price)}</b></span></div><div class="chip">${sv("box")}<span>Prazo${pz}: <b>${esc(o.deadline)}</b></span></div></div>`:"";
+const ordHead=(o,sub)=>`<div class="tile">${sv("box")}</div><div class="main"><div class="top"><div><b style="font-size:1.1rem">${esc(o.piece)}</b><div class="mu" style="margin-top:2px">${dot(o.color)}</div></div>${pill(o)}</div>${sub||""}</div>`;
+const mi=(k,t,c)=>`<p class="${c||""}">${sv(k)}<span>${t}</span></p>`;
+const home=()=>`<section class="hero"><span class="eb">Qualidade e precisão</span><h2>Suas ideias, impressas em 3D</h2><p>Peça uma peça sob medida na cor que você quiser ou escolha entre os itens prontos em estoque.</p><div class="row"><button class="btn" data-a="order">${sv("cart")} Pedir peça</button><button class="btn s" data-a="stock">${sv("box")} Ver em estoque</button></div></section>
+<div class="feat"><div class="card"><div class="ic">${sv("shield")}</div><div><b>Várias cores</b><span class="mu">Escolha a cor ideal para a sua peça.</span></div></div><div class="card"><div class="ic">${sv("zap")}</div><div><b>Sob medida</b><span class="mu">Envie uma imagem de referência.</span></div></div><div class="card"><div class="ic">${sv("box")}</div><div><b>Pix rápido</b><span class="mu">Pague com QR Code ou copia e cola.</span></div></div><div class="card"><div class="ic">${sv("truck")}</div><div><b>Entrega local</b><span class="mu">Levamos até o seu endereço.</span></div></div></div>
+<h3 class="sec"><small>Passo a passo</small>Como funciona</h3><div class="steps"><div><b>Faça o pedido</b><br><span class="mu">Nome da peça, cor e referência.</span></div><div><b>Análise</b><br><span class="mu">Respondemos em até 24 horas com valor e prazo.</span></div><div><b>Pagamento</b><br><span class="mu">Pague pelo Pix após a confirmação.</span></div><div><b>Produção e entrega</b><br><span class="mu">Imprimimos e entregamos para você.</span></div></div>`;
+const swatches=(sel,at)=>`<div class="sw">${cfg.colors.map(c=>`<button type="button" title="${esc(c.n)}" data-a="${at}" data-v="${esc(c.n)}" class="${sel===c.n?"on":""}" style="background:${esc(c.h)}"></button>`).join("")}</div>`;
+function order(){const reg=!me||!me.profile;
+ return `<div class="card"><h2>Pedir peça</h2><label>Nome da peça</label><input id="pn" placeholder="Ex.: barquinho" value="${esc(draft.piece)}"><label>Cor</label>${swatches(draft.color,"col")}<p class="mu">${esc(draft.color||"Escolha uma cor")}</p><label>Imagem de referência (opcional)</label><input type="file" id="pi" accept="image/*">${draft.img?`<img class="ref" src="${esc(draft.img)}">`:""}<label>Observações (opcional)</label><textarea id="po" rows="2">${esc(draft.obs)}</textarea><div style="margin-top:16px"><button class="btn" data-a="conf" style="width:100%">Confirmar</button></div></div>
+ ${reg&&draft.reg?regForm():""}`}
+const regForm=()=>`<div class="card"><h2>Primeiro acesso: cadastro</h2><label>Nome completo</label><input id="rn"><label>Telefone / WhatsApp</label><input id="rt" type="tel"><label>Cidade / bairro</label><input id="rc"><label>Endereço de entrega</label><input id="ra"><div style="margin-top:16px"><button class="btn" data-a="reg" style="width:100%">Salvar e enviar pedido</button></div></div>`;
+function vstock(){return `<h2>Em estoque</h2>${stock.length?`<div class="grid">${stock.map(s=>`<div class="card" style="padding:10px">${s.img?`<img src="${esc(s.img)}" alt="">`:'<div class="ph">🧊</div>'}<b>${esc(s.name)}</b><div class="mu">${s.price?R(s.price):""}${s.qty!==""&&s.qty!=null?(Number(s.qty)>0?" · "+esc(s.qty)+" un.":" · Esgotado"):""}</div></div>`).join("")}</div>`:'<div class="card mu">Nada em estoque no momento. Faça um pedido sob medida!</div>'}<button class="btn" data-a="order" style="margin-top:8px">Pedir peça</button>`}
+const dot=n=>{const c=cfg.colors.find(x=>x.n===n);return `<span class="dot" style="background:${esc(c?c.h:"#888")}"></span> ${esc(n)}`};
+function mine(){const it=(me&&me.items||[]).slice().reverse();return `<h2 class="hh">${sv("cart")} Meus pedidos</h2>${it.length?it.map(o=>{let m="";
+ if(o.status==="analise")m=mi("clock","Sua peça está em análise. Aguarde até 24 horas para o pedido ser confirmado.");
+ else if(o.status==="aguardando")m=`<button class="btn ok" data-a="pay" data-v="${o.id}" style="width:100%">${sv("dollar")} Pagar com Pix</button>`;
+ else if(o.status==="pago_info")m=mi("clock","Aguardando confirmação do pagamento.");
+ else if(o.status==="pago")m=mi("check","Seu Pix foi feito com sucesso!");
+ else if(o.status==="producao")m=mi("wrench","Seu produto está sendo feito.");
+ else if(o.status==="pronto")m=mi("box","Seu produto está pronto para entrega!");
+ else if(o.status==="recusado")m=mi("x","Pedido recusado."+(o.motivo?" Motivo: "+esc(o.motivo):""),"bad");
+ return `<div class="card ord">${ordHead(o,chips(o," máximo de entrega"))}${m?`<div class="det">${m}</div>`:""}</div>`}).join(""):'<div class="card mu">Você ainda não fez pedidos.</div>'}`}
+function pay(){const o=(me&&me.items||[]).find(x=>x.id===pick);if(!o)return mine();if(!cfg.pixKey)return `<div class="card">O Pix ainda não está configurado. Fale com o vendedor.</div>`;const c=pixCode(o.price,o.id);setTimeout(()=>{const q=$("#qr");if(q&&window.QRCode){q.innerHTML="";new QRCode(q,{text:c,width:210,height:210})}},0);
+ return `<div class="card"><h2>Pagamento Pix</h2><p>${esc(o.piece)} · <b>${R(o.price)}</b></p><div class="qr" id="qr"></div><p class="mu">Ou use o Pix copia e cola:</p><div class="code">${esc(c)}</div><div class="row" style="margin-top:12px"><button class="btn s" data-a="copy" data-v="${esc(c)}">Copiar código</button></div><label>Anexe o comprovante do pagamento</label><input type="file" id="cf" accept="image/*">${draft.comp?`<img class="ref" src="${draft.comp}">`:""}<div style="margin-top:14px"><button class="btn ok" data-a="paid" data-v="${o.id}" style="width:100%">Enviar comprovante</button></div></div>`}
+const login=()=>`<div class="card"><h2>Acesso administrador</h2><label>Senha</label><input id="ps" type="password" autocomplete="off"><div style="margin-top:14px"><button class="btn" data-a="login" style="width:100%">Entrar</button></div></div>`;
+function admin(){const tb=[["ped","Pedidos","box"],["est","Estoque","box"],["cor","Cores","palette"],["pix","Pix","qr"]];
+ return `<div class="tabs">${tb.map(t=>`<button class="btn sm ${tab===t[0]?"":"s"}" data-a="tab" data-v="${t[0]}">${sv(t[2])} ${t[1]}</button>`).join("")}</div>`+({ped:aPed,est:aEst,cor:aCor,pix:aPix}[tab])()}
+let openId=null;
+function aPed(){const l=[];all.forEach(u=>(u.items||[]).forEach(o=>l.push({...o,u})));l.sort((a,b)=>b.created-a.created);
+ return l.length?l.map(o=>{const p=o.u.profile||{},op=openId===o.id,k=`data-u="${o.u.uid}" data-v="${o.id}"`;let d="";
+ if(op){d=(o.obs?mi("file","<b>Observações:</b> "+esc(o.obs)):"")+(o.img?`<img class="ref" src="${esc(o.img)}">`:"")+mi("pin","Endereço: "+esc(p.addr))
+  +(o.status==="analise"?`<label>Valor (R$)</label><input id="v${o.id}" type="number" step="0.01" inputmode="decimal"><label>Prazo máximo de entrega</label><input id="d${o.id}" placeholder="Ex.: 3 dias"><div class="row" style="margin-top:12px"><button class="btn ok" data-a="aprov" ${k}>Confirmar pedido</button></div>`:"")
+  +(o.comprovante?`<p class="mu" style="display:block">Comprovante de pagamento:</p><img class="ref" src="${esc(o.comprovante)}" style="max-height:320px"><p style="display:block">Total: <b>${R(o.price)}</b></p>`:"")
+  +(o.status==="pago_info"?`<button class="btn ok" data-a="stt" data-s="pago" ${k} style="width:100%">Confirmar</button>`:"")
+  +(["analise","aguardando","pago_info"].includes(o.status)?`<hr style="border:0;border-top:1px solid var(--bd);margin:14px 0 0"><label>Motivo da recusa (opcional)</label><input id="m${o.id}" placeholder="Ex.: pagamento não identificado"><button class="btn er sm" data-a="rec" ${k} style="margin-top:10px">Recusar pedido</button>`:"")
+  +(["pago","producao","pronto","entregue"].includes(o.status)?`<p class="mu" style="display:block;margin-top:12px">Andamento do pedido:</p><div class="row">${[["producao","Produto sendo feito"],["pronto","Pronto para entrega"],["entregue","Entregue"]].map(x=>`<button class="btn sm ${o.status===x[0]?"ok":"s"}" data-a="stt" data-s="${x[0]}" ${k}>${x[1]}</button>`).join("")}</div>`:"");}
+ return `<div class="card ord">${ordHead(o,`<div class="meta">${sv("user")}<span>${esc(p.name)} · ${esc(p.phone)} · ${esc(p.city)}</span></div>`+chips(o,""))}${op?`<div class="det">${d}</div>`:""}<div class="act"><button class="btn s sm" data-a="ver" data-v="${o.id}">${sv("eye")} ${op?"Fechar":"Ver"}</button></div></div>`}).join(""):'<div class="card mu">Nenhum pedido ainda.</div>'}
+const aEst=()=>`<div class="card"><h2>Adicionar ao estoque</h2><label>Nome</label><input id="sn"><label>Preço (R$)</label><input id="sp" type="number" step="0.01" inputmode="decimal"><label>Quantidade</label><input id="sq" type="number" inputmode="numeric"><label>Imagem</label><input id="si" type="file" accept="image/*"><div style="margin-top:14px"><button class="btn" data-a="addst" style="width:100%">Adicionar</button></div></div><div class="grid">${stock.map(s=>s.id===editId?editCard(s):`<div class="card" style="padding:10px">${s.img?`<img src="${esc(s.img)}" alt="">`:'<div class="ph">🧊</div>'}<b>${esc(s.name)}</b><div class="mu">${s.price?R(s.price):""} ${s.qty!==""&&s.qty!=null?(Number(s.qty)>0?"· "+esc(s.qty)+" un.":"· Esgotado"):""}</div><div class="row" style="margin-top:8px"><button class="btn sm" data-a="editst" data-v="${s.id}">Editar</button><button class="btn er sm" data-a="delst" data-v="${s.id}">Remover</button></div></div>`).join("")}</div>`;
+let editId=null;
+function capE(){draft.e={...draft.e,name:val("en"),price:val("ep"),qty:val("eq")}}
+function editCard(s){const e=draft.e||{};return `<div class="card" style="grid-column:1/-1"><h2>Editar item</h2>${e.img?`<img class="ref" src="${esc(e.img)}" style="max-height:200px">`:'<div class="ph" style="max-width:120px">🧊</div>'}<label>Nome</label><input id="en" value="${esc(e.name)}"><label>Preço (R$)</label><input id="ep" type="number" step="0.01" inputmode="decimal" value="${esc(e.price)}"><label>Quantidade em estoque</label><input id="eq" type="number" inputmode="numeric" value="${esc(e.qty)}"><label>Trocar foto</label><input type="file" id="ei" accept="image/*">${e.img?'<div style="margin-top:10px"><button class="btn s sm" data-a="rmimg">Remover foto</button></div>':""}<div class="row" style="margin-top:14px"><button class="btn ok" data-a="savest" data-v="${s.id}">Salvar</button><button class="btn s" data-a="cancelst">Cancelar</button></div></div>`}
+const aCor=()=>`<div class="card"><h2>Cores disponíveis</h2>${cfg.colors.map((c,i)=>`<div class="row" style="justify-content:space-between;margin-bottom:8px"><span>${dot(c.n)}</span><button class="btn er sm" data-a="delcor" data-v="${i}">Remover</button></div>`).join("")}<label>Nova cor</label><div class="row"><input id="cn" placeholder="Nome" style="flex:1;min-width:120px"><input id="ch" type="color" value="#888888" style="width:60px;padding:2px"></div><div style="margin-top:12px"><button class="btn" data-a="addcor">Adicionar cor</button></div></div>`;
+const aPix=()=>`<div class="card"><h2>Dados do Pix</h2><label>Chave Pix</label><input id="xk" value="${esc(cfg.pixKey)}"><label>Nome do recebedor</label><input id="xn" value="${esc(cfg.pixName)}"><label>Cidade</label><input id="xc" value="${esc(cfg.pixCity)}"><div style="margin-top:14px"><button class="btn" data-a="savepix" style="width:100%">Salvar</button></div></div>`;
+async function up(f){if(!f)return null;try{const im=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=URL.createObjectURL(f)});const k=Math.min(1,700/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);return c.toDataURL("image/jpeg",.72)}catch(e){toast("Não foi possível ler a imagem.");return null}}
+const val=id=>($("#"+id)||{}).value||"";
+async function saveCfg(p){cfg={...cfg,...p};try{await setDoc(doc(fs,"config","main"),cfg);return true}catch(e){toast("Não foi possível salvar: "+(e.code||e.message));return false}}
+async function addOrder(){try{const p=prof||draft.profile;if(!prof)await setDoc(doc(fs,"profiles",uid),p);await addDoc(collection(fs,"orders"),{uid,profile:p,piece:draft.piece,color:draft.color,img:draft.img||"",obs:draft.obs||"",status:"analise",created:Date.now()});draft={};go("mine");toast("Sua peça está em análise. Aguarde até 24 horas.")}catch(e){toast("Erro ao enviar: "+(e.code||e.message))}}
+async function chg(u,id,fn){try{const o=[...ords,...all.flatMap(x=>x.items)].find(z=>z.id===id);const {id:_i,...rest}=fn(o);await updateDoc(doc(fs,"orders",id),rest);return true}catch(e){toast("Não foi possível salvar: "+(e.code||e.message));return false}}
+document.addEventListener("change",async e=>{const t=e.target;if(t.id==="pi"){draft.piece=val("pn");draft.obs=val("po");const u=await up(t.files[0]);if(u){draft.img=u;t.blur();view="order";render()}}if(t.id==="ei"){capE();const u=await up(t.files[0]);if(u){draft.e.img=u;t.blur();render()}}if(t.id==="cf"){const u=await up(t.files[0]);if(u){draft.comp=u;t.blur();render()}}});
+async function bind(){}
+document.addEventListener("click",async e=>{const b=e.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,v=b.dataset.v;
+ if(a==="order"||a==="stock")return go(a);
+ if(a==="col"){draft.piece=val("pn");draft.obs=val("po");draft.color=v;return render()}
+ if(a==="conf"){draft.piece=val("pn").trim();draft.obs=val("po");if(!draft.piece)return toast("Digite o nome da peça.");if(!draft.color)return toast("Escolha uma cor.");if(!me||!me.profile){draft.reg=true;render();return setTimeout(()=>$("#rn")&&$("#rn").scrollIntoView({behavior:"smooth"}),50)}return addOrder()}
+ if(a==="reg"){const p={name:val("rn").trim(),phone:val("rt").trim(),city:val("rc").trim(),addr:val("ra").trim()};if(!p.name||!p.phone||!p.city||!p.addr)return toast("Preencha todos os campos.");draft.profile=p;return addOrder()}
+ if(a==="pay"){pick=v;return go("pay")}
+ if(a==="copy"){try{await navigator.clipboard.writeText(v);toast("Código copiado!")}catch(x){toast("Selecione e copie o código.")}return}
+ if(a==="paid"){if(!draft.comp)return toast("Anexe o print do comprovante do Pix antes de enviar.");if(await chg(uid,v,o=>({...o,status:"pago_info",comprovante:draft.comp}))){draft.comp=null;toast("Comprovante enviado! Aguarde a confirmação.");go("mine")}return}
+ if(a==="login"){try{await signInWithEmailAndPassword(auth,ADMIN_EMAIL,val("ps"));isAdm=true;return go("admin")}catch(x){return toast("Senha incorreta ou acesso negado.")}}
+ if(a==="tab"){tab=v;return render()}
+ if(a==="ver"){openId=openId===v?null:v;return render()}
+ if(a==="aprov"){const pr=parseFloat(val("v"+v)),d=val("d"+v).trim();if(!(pr>0)||!d)return toast("Informe valor e prazo.");if(await chg(b.dataset.u,v,o=>({...o,status:"aguardando",price:pr,deadline:d})))toast("Pedido confirmado. O cliente foi avisado.");return}
+ if(a==="rec"){const m=val("m"+v).trim();if(await chg(b.dataset.u,v,o=>({...o,status:"recusado",motivo:m})))toast("Pedido recusado. O cliente foi avisado.");return}
+ if(a==="stt"){await chg(b.dataset.u,v,o=>({...o,status:b.dataset.s}));return}
+ if(a==="addst"){const n=val("sn").trim();if(!n)return toast("Informe o nome.");const img=await up($("#si").files[0])||"";await addDoc(collection(fs,"stock"),{name:n,price:parseFloat(val("sp"))||0,qty:val("sq"),img});return toast("Adicionado ao estoque.")}
+ if(a==="delst"){if(confirm("Remover este item do estoque?"))await deleteDoc(doc(fs,"stock",v));return}
+ if(a==="editst"){const it=stock.find(z=>z.id===v);if(!it)return;draft.e={name:it.name||"",price:it.price||"",qty:it.qty??"",img:it.img||""};editId=v;return render()}
+ if(a==="cancelst"){editId=null;draft.e=null;return render()}
+ if(a==="rmimg"){capE();draft.e.img="";return render()}
+ if(a==="savest"){const n=val("en").trim();if(!n)return toast("Informe o nome.");try{await updateDoc(doc(fs,"stock",v),{name:n,price:parseFloat(val("ep"))||0,qty:val("eq"),img:(draft.e&&draft.e.img)||""});editId=null;draft.e=null;render();toast("Item atualizado!")}catch(x){toast("Não foi possível salvar: "+(x.code||x.message))}return}
+ if(a==="addcor"){const n=val("cn").trim();if(!n)return toast("Dê um nome à cor.");return saveCfg({colors:[...cfg.colors,{n,h:val("ch")}]})}
+ if(a==="delcor"){return saveCfg({colors:cfg.colors.filter((_,i)=>i!=v)})}
+ if(a==="savepix"){if(await saveCfg({pixKey:val("xk").trim(),pixName:val("xn").trim(),pixCity:val("xc").trim()}))toast("Pix salvo!");return}
+});
+init();
+</script></body></html>
